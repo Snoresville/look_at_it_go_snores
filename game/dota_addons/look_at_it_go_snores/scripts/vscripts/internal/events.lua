@@ -81,8 +81,8 @@ ListenToGameEvent("entity_killed", function(keys)
 
 		-- fix respawn lvl>25
 		if (killedUnit:GetLevel()>1) then
-			print(killedUnit,killedUnit:GetName(),4*killedUnit:GetLevel() * BUTTINGS.RESPAWN_TIME_PERCENTAGE * 0.01)
-			killedUnit:SetTimeUntilRespawn(4 * killedUnit:GetLevel() * BUTTINGS.RESPAWN_TIME_PERCENTAGE * 0.01)
+			print(killedUnit,killedUnit:GetName(),5)
+			killedUnit:SetTimeUntilRespawn(5)
 		end
 
 		-- tombstone

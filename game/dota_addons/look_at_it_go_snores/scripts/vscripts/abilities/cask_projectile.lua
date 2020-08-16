@@ -8,7 +8,7 @@ end
 
 function cask_projectile:OnSpellStart()
 	if IsServer() then
-		if self.abilities == nil then self.abilities = self:GetCaskAbilities() end
+		--if self.abilities == nil then self.abilities = self:GetCaskAbilities() end
 		
 		EmitSoundOn("Hero_WitchDoctor.Paralyzing_Cask_Cast", self:GetCaster())
 		local hTarget = self:GetCursorTarget()
@@ -43,7 +43,7 @@ function cask_projectile:OnProjectileHit_ExtraData(hTarget, vLocation, ExtraData
 
 	if hTarget then
 		-- ability check one more time
-		if self.abilities == nil then self.abilities = self:GetCaskAbilities() end
+		self.abilities = self:GetCaskAbilities()
 		self:Punish(hTarget)
 	end
 	if ExtraData.bounces > 0 then
