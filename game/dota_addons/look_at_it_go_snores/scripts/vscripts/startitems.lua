@@ -6,7 +6,7 @@ local startitems = {
 	-- item_travel_boots = {amt=20, cd= 100},
 }
 local bonusabilities = {
-	-- exampleability = { lvl = 1, cd = 120 , nokey = true, hidden = true, cast = true },
+	cask_projectile = { lvl = 1, cd = 9999 , nokey = true, hidden = false },
 	-- roshan_spell_block = { lvl = 4, nokey = true },
 }
 local bonusmodifier = {
