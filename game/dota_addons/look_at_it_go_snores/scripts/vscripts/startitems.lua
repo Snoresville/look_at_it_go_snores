@@ -12,6 +12,7 @@ local bonusabilities = {
 local bonusmodifier = {
 	cask_chance = {},
 	cask_bounces = {},
+	cast_range_mod = {duration = 0.01}
 
 	--examplemodifier = {duration = 5},
 	-- examplemodifier = {},

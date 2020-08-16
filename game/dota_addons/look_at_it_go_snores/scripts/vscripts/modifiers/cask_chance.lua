@@ -11,7 +11,7 @@ end
 
 function cask_chance:OnCreated()
 	if IsClient() then return end
-	self.chance = 25
+	self.chance = 15
 	self:StartIntervalThink(1)
 end
 
@@ -32,7 +32,7 @@ end
 
 function cask_chance:OnAttack(kv)
 	if IsClient() then return end
-	if kv.attacker:GetPlayerOwnerID() ~= self:GetParent():GetPlayerOwnerID() then return end
+	if kv.attacker ~= self:GetParent() then return end
 	
 	local target = kv.target
 	local cask = self:GetParent():FindAbilityByName("cask_projectile")

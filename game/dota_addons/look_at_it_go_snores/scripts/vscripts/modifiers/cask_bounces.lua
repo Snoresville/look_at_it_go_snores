@@ -11,7 +11,7 @@ end
 
 function cask_bounces:OnCreated()
 	if IsClient() then return end
-	self.bounce_base = 4
+	self.bounce_base = 3
 	self:StartIntervalThink(1)
 end
 
@@ -21,5 +21,5 @@ function cask_bounces:OnRefresh()
 end
 
 function cask_bounces:OnIntervalThink()
-	self:SetStackCount(self.bounce_base + 4 * self:GetParent():GetLevel())
+	self:SetStackCount(self.bounce_base + self:GetParent():GetLevel())
 end

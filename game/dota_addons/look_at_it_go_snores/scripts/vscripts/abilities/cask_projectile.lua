@@ -64,7 +64,7 @@ function cask_projectile:OnProjectileHit_ExtraData(hTarget, vLocation, ExtraData
 			-- If the target is an enemy, bounce on an enemy.
 			for _,unit in pairs(enemies) do
 				if hTarget then
-					if (unit ~= hTarget) and (not unit:IsOther()) then
+					if (unit ~= hTarget) and (not unit:IsOther()) and (not unit:IsBuilding()) then
 						table.insert(tJumpTargets, unit)
 					end
 				end
@@ -142,6 +142,7 @@ function cask_projectile:Punish(hDumbass)
 		notLevelled = true
 	end
 	
+	caster:AddNewModifier(caster, self, "cast_range_mod", {duration = 0.01})
 	caster:SetCursorCastTarget(hDumbass)
 	ability:OnSpellStart()
 	
