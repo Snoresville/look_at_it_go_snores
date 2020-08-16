@@ -12,10 +12,11 @@ function cask_projectile:OnSpellStart()
 		
 		EmitSoundOn("Hero_WitchDoctor.Paralyzing_Cask_Cast", self:GetCaster())
 		local hTarget = self:GetCursorTarget()
-		print(hTarget:GetUnitName())
 
 		-- Parameters
-		local bounces = 3
+		local caster = self:GetCaster()
+		
+		local bounces = caster:GetModifierStackCount("cask_bounces", caster)
 		
 		local info = {
 			EffectName = "particles/units/heroes/hero_witchdoctor/witchdoctor_cask.vpcf",
