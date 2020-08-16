@@ -21,7 +21,7 @@ function cask_chance:OnRefresh()
 end
 
 function cask_chance:OnIntervalThink()
-	self:SetStackCount(self.chance + 2 * self:GetParent():GetLevel())
+	self:SetStackCount(self.chance + self:GetParent():GetLevel())
 end
 
 function cask_chance:DeclareFunctions() 

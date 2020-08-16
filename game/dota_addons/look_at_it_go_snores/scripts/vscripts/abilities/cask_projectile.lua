@@ -136,17 +136,13 @@ end
 function cask_projectile:Punish(hDumbass)
 	local caster = self:GetCaster()
 	local ability = self.abilities[math.random(#self.abilities)]
-	local notLevelled = false
 	if ability:GetLevel() == 0 then
-		ability:SetLevel(1)
-		notLevelled = true
+		return
 	end
 	
 	caster:AddNewModifier(caster, self, "cast_range_mod", {duration = 0.01})
 	caster:SetCursorCastTarget(hDumbass)
 	ability:OnSpellStart()
-	
-	if notLevelled then ability:SetLevel(0) end
 end
 
 --[[
