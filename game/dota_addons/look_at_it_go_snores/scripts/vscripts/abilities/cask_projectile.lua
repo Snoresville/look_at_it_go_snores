@@ -50,7 +50,7 @@ function cask_projectile:OnProjectileHit_ExtraData(hTarget, vLocation, ExtraData
 		Timers:CreateTimer(ExtraData.bounce_delay, function()
 			-- Finds all units in the area
 			local enemies = FindUnitsInRadius(	self:GetCaster():GetTeamNumber(), 
-												hTarget:GetAbsOrigin(), 
+												Vector(0,0,0), 
 												nil, 
 												FIND_UNITS_EVERYWHERE, 
 												DOTA_UNIT_TARGET_TEAM_ENEMY, 
@@ -105,21 +105,36 @@ function cask_projectile:GetCaskAbilities()
 	local caster = self:GetCaster()
 	
 	local bannedBehaviours = {
-		DOTA_ABILITY_BEHAVIOR_HIDDEN,
+		--DOTA_ABILITY_BEHAVIOR_HIDDEN,
 		DOTA_ABILITY_BEHAVIOR_PASSIVE,
 		DOTA_ABILITY_BEHAVIOR_TOGGLE,
 		DOTA_ABILITY_BEHAVIOR_ATTACK,
 	}
 	
+	local bannedAbilities = {
+		"cask_projectile",
+		"phantom_lancer_doppelwalk",
+		
+		-- Rubick section
+		"rubick_empty1",
+		"rubick_empty2",
+		"rubick_hidden1",
+		"rubick_hidden2",
+		"rubick_hidden3",
+	}
+	
+	-- abilities
 	for index = 0,15 do
 		-- Ability in question
 		local ability = caster:GetAbilityByIndex(index)
 		
 		-- Ability checkpoint
 		if ability == nil then goto continue end
-		if ability:GetAbilityName() == "cask_projectile" then goto continue end
 		for _,behaviour in pairs(bannedBehaviours) do
 			if bit.band( ability:GetBehavior(), behaviour ) == behaviour then goto continue end
+		end
+		for _,bannedAbility in pairs(bannedAbilities) do
+			if ability:GetAbilityName() == bannedAbility then goto continue end
 		end
 		
 		-- Add that ability after checkpoint
@@ -129,6 +144,23 @@ function cask_projectile:GetCaskAbilities()
 		-- Skip
 		::continue::
 	end
+	
+	-- items
+	--[[
+	for i = 0,5 do
+		local item = hero:GetItemInSlot(i)
+		if item == nil then goto continueItem end
+		for _,behaviour in pairs(bannedBehaviours) do
+			if bit.band( item:GetBehavior(), behaviour ) == behaviour then goto continueItem end
+		end
+		
+		-- Add that ability after checkpoint
+		print(ability:GetAbilityName())
+		table.insert(abilities, ability)
+		
+		::continueItem::
+	end
+	--]]
 	
 	return abilities
 end
