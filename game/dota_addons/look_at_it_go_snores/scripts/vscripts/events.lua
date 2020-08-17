@@ -14,7 +14,7 @@ ListenToGameEvent("entity_killed", function(keys)
 	local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
 	if (killedUnit and killedUnit:IsRealHero()) then
-		-- when a hero dies
+		EmitGlobalSound("skrillex")
 	end
 
 end, nil)
