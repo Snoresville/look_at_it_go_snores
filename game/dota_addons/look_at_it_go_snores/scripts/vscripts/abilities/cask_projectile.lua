@@ -112,10 +112,20 @@ function cask_projectile:GetCaskAbilities()
 	}
 	
 	local bannedAbilities = {
+		-- Misc
 		"cask_projectile",
+		"generic_hidden",
+		
+		-- Invoker
+		"invoker_quas",
+		"invoker_wex",
+		"invoker_exort",
+		"invoker_invoke",
+		
+		-- Phantom Lancer
 		"phantom_lancer_doppelwalk",
 		
-		-- Rubick section
+		-- Rubick
 		"rubick_empty1",
 		"rubick_empty2",
 		"rubick_hidden1",

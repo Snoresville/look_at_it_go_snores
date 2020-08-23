@@ -57,15 +57,18 @@
 							  "value8"        "sounds/spitfire1.vsnd"
 							  "value9"        "sounds/spitfire2.vsnd"
 							  "value10"        "sounds/spitfire3.vsnd"
+							  "value11"        "sounds/911.vsnd"
+							  "value12"        "sounds/ohmygod.vsnd"
+							  "value13"        "sounds/kyoto.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "3.00000"   }
-                    "pitch_rand_min"    {   "value"     "-0.05000"  }
-                    "pitch_rand_max"    {   "value"     "0.050000"  }
+                    "volume"            {   "value"     "1.80000"   }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "100.00000" }
+                    "soundlevel"        {   "value"     "1000.00000" }
                     "distance_max"      {   "value"     "1600.000"  }
-                    "event_type"        {   "value"     "1.000000"  }
+                    "event_type"        {   "value"     "3.000000"  }
                 }
             }
         }
