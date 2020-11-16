@@ -14,6 +14,7 @@ ListenToGameEvent("entity_killed", function(keys)
 	local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
 	if (killedUnit and killedUnit:IsRealHero()) then
+		PlayerResource:GetSelectedHeroEntity(killedUnit:GetPlayerOwnerID()):SetTimeUntilRespawn( 5 )
 		EmitGlobalSound("skrillex")
 	end
 
