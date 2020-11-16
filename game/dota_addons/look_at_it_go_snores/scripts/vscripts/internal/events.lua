@@ -46,6 +46,7 @@ ListenToGameEvent("game_rules_state_change", function()
 		-- 	if (1==BUTTINGS.FREE_COURIER) then TeamList:GetFreeCouriers() end
 		-- end, 5 )
 	end
+	CustomGameEventManager:Send_ServerToAllClients("scoreboard_fix", {radiantKills = GetTeamHeroKills(DOTA_TEAM_GOODGUYS), direKills = GetTeamHeroKills(DOTA_TEAM_BADGUYS)})
 end, nil)
 
 -- local l1 = ListenToGameEvent("npc_spawned", function(keys)
@@ -97,4 +98,6 @@ ListenToGameEvent("entity_killed", function(keys)
 		end
 
 	end
+	-- Scoreboard Fix
+	CustomGameEventManager:Send_ServerToAllClients("scoreboard_fix", {radiantKills = GetTeamHeroKills(DOTA_TEAM_GOODGUYS), direKills = GetTeamHeroKills(DOTA_TEAM_BADGUYS)})
 end, nil)

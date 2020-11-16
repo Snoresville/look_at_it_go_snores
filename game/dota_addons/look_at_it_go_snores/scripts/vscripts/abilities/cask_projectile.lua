@@ -141,7 +141,7 @@ function cask_projectile:GetCaskAbilities()
 		-- Ability checkpoint
 		if ability == nil then goto continue end
 		for _,behaviour in pairs(bannedBehaviours) do
-			if bit.band( ability:GetBehavior(), behaviour ) == behaviour then goto continue end
+			if HasBit( ability:GetBehavior(), behaviour ) then goto continue end
 		end
 		for _,bannedAbility in pairs(bannedAbilities) do
 			if ability:GetAbilityName() == bannedAbility then goto continue end
