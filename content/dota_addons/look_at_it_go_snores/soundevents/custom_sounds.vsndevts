@@ -77,6 +77,7 @@
 							  "value27"			"sounds/kemonofriends.vsnd"
 							  "value28"			"sounds/kemonoassaultinprogress"
 							  "value29"			"sounds/deepinthenight"
+							  "value30"			"sounds/unravel"
                         }
                     }
                     "volume"            {   "value"     "1.7000"   }
