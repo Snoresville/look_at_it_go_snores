@@ -11,15 +11,11 @@ end
 
 function cask_bounces:OnCreated()
 	if IsClient() then return end
-	self.bounce_base = 3
+	self.bounce_base = BUTTINGS.CASK_BOUNCE_BASE or 3
 	self:StartIntervalThink(1)
 end
 
-function cask_bounces:OnRefresh()
-	if IsClient() then return end
-	self.bounce_base = self.bounce_base + 1
-end
-
 function cask_bounces:OnIntervalThink()
-	self:SetStackCount(self.bounce_base + self:GetParent():GetLevel())
+	local newBounce = math.min(self.bounce_base + (self:GetParent():GetLevel() - 1) * BUTTINGS.CASK_BOUNCE_LEVEL, BUTTINGS.CASK_BOUNCE_LIMIT)
+	self:SetStackCount(newBounce)
 end

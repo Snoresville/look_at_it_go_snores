@@ -1,4 +1,7 @@
 <root>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/util.js" />
+	</scripts>
 	<script>
 		// Credits: EarthSalamander #42
 		// Hide vanilla pick screen in loading screen
@@ -21,29 +24,11 @@
 				message: data.message});
 		});
 		
-		function GetDotaHud() {
-			var panel = $.GetContextPanel();
-			while (panel && panel.id !== 'Hud') {
-				panel = panel.GetParent();
-			}
-
-			if (!panel) {
-				throw new Error('Could not find Hud root from panel with id: ' + $.GetContextPanel().id);
-			}
-
-			return panel;
-		}
-
-		function FindDotaHudElement(id) {
-			return GetDotaHud().FindChildTraverse(id);
-		}
-
 		// Fixes the top bar scores
 		GameEvents.Subscribe('scoreboard_fix', (data)=>{
 			FindDotaHudElement("TopBarRadiantScore").text = data.radiantKills;
 			FindDotaHudElement("TopBarDireScore").text = data.direKills;
 		});
-		
 	</script>
 	<Panel>
 		<CustomUIElement type="Hud"			layoutfile="file://{resources}/layout/custom_game/courier_fix.xml" />

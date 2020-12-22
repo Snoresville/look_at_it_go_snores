@@ -42,6 +42,15 @@ BUTTINGS = {
 	BUYBACK_LIMIT = 1,                  -- Max amount of buybacks
 	BUYBACK_COOLDOWN = 600,             -- Cooldown for buyback
 
+	CASK_CHANCE_BASE = 15,				-- Base Chance for cask to be released
+	CASK_BOUNCE_BASE = 3,				-- Amount of bounces
+	
+	CASK_CHANCE_LEVEL = 1,				-- 
+	CASK_BOUNCE_LEVEL = 1,
+
+	CASK_CHANCE_LIMIT = 45,
+	CASK_BOUNCE_LIMIT = 12,
+
 }
 
 function BUTTINGS.ALTERNATIVE_XP_TABLE()	-- xp values if MAX_LEVEL is different than 30

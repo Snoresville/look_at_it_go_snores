@@ -11,17 +11,13 @@ end
 
 function cask_chance:OnCreated()
 	if IsClient() then return end
-	self.chance = 15
+	self.chance = BUTTINGS.CASK_CHANCE_BASE or 15
 	self:StartIntervalThink(1)
 end
 
-function cask_chance:OnRefresh()
-	if IsClient() then return end
-	self.chance = self.chance + 1
-end
-
 function cask_chance:OnIntervalThink()
-	self:SetStackCount(self.chance + self:GetParent():GetLevel())
+	local newChance = math.min(self.chance + (self:GetParent():GetLevel() - 1) * BUTTINGS.CASK_CHANCE_LEVEL, CASK_CHANCE_LIMIT)
+	self:SetStackCount(newChance)
 end
 
 function cask_chance:DeclareFunctions() 
